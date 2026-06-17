@@ -1,69 +1,73 @@
 # Workbench RBAC
 
-A Role and Permission Builder built for The Internet Folks SDE Intern Assignment.
+Role-Based Access Control (RBAC) system built for The Internet Folks SDE Intern Assignment.
 
 ## Features
 
-* View available permissions
-* Create custom roles
-* Update existing roles
-* Assign roles to users
-* Remove roles from users
-* Support multiple roles per user
-* Calculate effective permissions
-* Union-based permission resolution
+### Role Management
+- Create custom roles
+- Update existing roles
+- Assign permissions to roles
+- Support multiple permissions per role
+
+### User Management
+- View all users
+- Assign roles to users
+- Remove roles from users
+- Support multiple roles per user
+
+### Effective Permissions
+- Resolve permissions across multiple roles
+- Union-based permission merging
+- No duplicate permissions
+
+## Permission Matrix
+
+### Projects
+- view
+- create
+- edit
+- delete
+- archive
+
+### Tasks
+- view
+- create
+- edit
+- delete
+- assign
+
+### Members
+- view
+- invite
+- remove
+- update role
+
+### Billing
+- view
+- update
+- download invoices
+
+### Settings
+- view
+- update
+
+---
 
 ## Tech Stack
 
 ### Frontend
-
-* React
-* TypeScript
-* Material UI
-* Axios
+- React
+- TypeScript
+- Material UI
+- Axios
 
 ### Backend
+- Node.js
+- Express.js
+- TypeScript
 
-* Node.js
-* Express
-* TypeScript
-
-## Permission Resolution
-
-This project uses a Union-Based RBAC strategy.
-
-When a user has multiple roles, all permissions from all assigned roles are combined into a single effective permission set.
-
-Example:
-
-Role A:
-
-* Projects:view
-
-Role B:
-
-* Projects:edit
-
-Effective Permissions:
-
-* Projects:view
-* Projects:edit
-
-## Running the Backend
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-## Running the Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
+---
 
 ## API Endpoints
 
@@ -71,32 +75,91 @@ npm run dev
 
 GET /permissions
 
+Returns all available permissions.
+
+---
+
 ### Roles
 
 GET /roles
 
+Returns all roles.
+
 POST /roles
 
+Creates a new role.
+
 PUT /roles/:id
+
+Updates an existing role.
+
+---
 
 ### Users
 
 GET /users
 
+Returns all users.
+
 POST /users/:id/roles
 
+Assign role to user.
+
 DELETE /users/:id/roles/:roleId
+
+Remove role from user.
+
+---
 
 ### Effective Permissions
 
 GET /effective-permissions/:id
 
-## Assignment Requirements Covered
+Returns all resolved permissions for a user.
 
-* Return all available permissions
-* Create and update roles
-* Assign and unassign roles
-* Resolve effective permissions
-* Multiple roles per user
-* Frontend UI for role and permission management
-* TypeScript on frontend and backend
+---
+
+## Permission Resolution Strategy
+
+This project uses a UNION-based permission model.
+
+If a user has multiple roles:
+
+Role A:
+- Projects:view
+
+Role B:
+- Projects:edit
+
+Effective permissions:
+
+- Projects:view
+- Projects:edit
+
+This approach is simple, predictable, and commonly used in SaaS products.
+
+---
+
+## Running the Project
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## Author
+
+Gaurang Kapil
