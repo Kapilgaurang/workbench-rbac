@@ -1,5 +1,19 @@
 # Workbench RBAC
 
+## Screenshots
+
+### Roles Management
+
+![Roles](screenshots/roles.png)
+
+### User Role Assignment
+
+![Users](screenshots/users.png)
+
+### Effective Permissions
+
+![Permissions](screenshots/permissions.png)
+
 Role-Based Access Control (RBAC) system built for The Internet Folks SDE Intern Assignment.
 
 ## Features
