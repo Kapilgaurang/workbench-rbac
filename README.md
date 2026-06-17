@@ -4,7 +4,7 @@
 
 ### Roles Management
 
-![Roles](screenshots/roles.png)
+![roles](screenshots/roles.png)
 
 ### User Role Assignment
 
